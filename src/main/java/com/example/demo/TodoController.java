@@ -1,11 +1,6 @@
 package com.example.demo;
 
-import java.util.List;
-import java.util.stream.StreamSupport;
-
-import org.springframework.http.HttpStatus;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,9 +10,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class noteController {
+public class TodoController {
+
     @Autowired
-    private notaService notaservice;
+    private TodoService service;
 
     //@GetMapping("/todos")
     //Iterable<TodoResponse> getNotes(){
@@ -27,24 +23,23 @@ public class noteController {
     //}
     @GetMapping("/todos")
     Iterable<Todo> getNotes(){
-        Iterable<Todo> lista =  notaservice.getNotes();
-        return lista;
+        return (Iterable<Todo>) service.getNotes();
     }
     @GetMapping("/todos/{id}")
     Object getNotes(@PathVariable Long id){
-        return notaservice.getNotes(id);
+        return service.getNotes(id);
     }
     @PutMapping("/todos/{id}")
     Object PutNote(@PathVariable Long id, @RequestBody Note nuovanota){
-        return notaservice.PutNote(id, nuovanota);
+        return service.PutNote(id, nuovanota);
     }
     @DeleteMapping("/todos/{id}")
     void deleteNote(@PathVariable Long id){
-        notaservice.deleteNote(id);
+        service.deleteNote(id);
     }
     @PostMapping("/todos")
     Object createNote(@RequestBody Note newNote){
-        return  notaservice.createNote(newNote);
+        return  service.createNote(newNote);
 
     }
 }
