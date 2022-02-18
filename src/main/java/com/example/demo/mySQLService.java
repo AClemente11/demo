@@ -6,8 +6,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 @ConditionalOnProperty(value="database.type", havingValue = "mysql")
-public class mySQLService implements notaService<Note> {
-    
+public class mySQLService implements TodoService<Note> {
+
     @Autowired
     private noteRepository noterepository;
 
@@ -15,7 +15,9 @@ public class mySQLService implements notaService<Note> {
     public Iterable<Note> getNotes(){
         return noterepository.findAll();
     }
+
     public Note getNotes(Long id){
+
         return noterepository.findById(id).orElseThrow();
     }
     public Note PutNote( Long id, Note nuovanota){
