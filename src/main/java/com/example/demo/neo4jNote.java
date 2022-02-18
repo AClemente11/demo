@@ -1,19 +1,17 @@
 package com.example.demo;
+import org.springframework.data.neo4j.core.schema.GeneratedValue;
+import org.springframework.data.neo4j.core.schema.Id;
+import org.springframework.data.neo4j.core.schema.Node;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
-@Entity
-public class Note implements Todo{
-
+@Node(labels = "neo4jNote")
+public class neo4jNote implements Todo{
     private @Id @GeneratedValue Long id;
     private String titolo;
     private String descrizione;
 
-    Note(){}
+    neo4jNote(){}
 
-    Note(String title, String description) {
+    neo4jNote(String title, String description) {
         super();
         titolo = title;
         descrizione = description;
