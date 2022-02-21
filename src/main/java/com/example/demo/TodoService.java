@@ -9,9 +9,9 @@ public interface TodoService<T> {
 
     T getNotes(Long id);
 
-    T PutNote(Long id, T nuovanota);
+    T PutNote(Long id, TodoResponse nuovanota);
 
     void deleteNote(Long id);
 
-    T createNote(T newNote);
+    T createNote(TodoResponse newNote);
 }

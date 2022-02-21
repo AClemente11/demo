@@ -2,6 +2,9 @@ package com.example.demo;
 import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
+import org.springframework.data.neo4j.core.schema.Relationship;
+
+import java.util.List;
 
 @Node(labels = "neo4jNote")
 public class Neo4jNote implements Todo {
@@ -13,7 +16,8 @@ public class Neo4jNote implements Todo {
     private String titolo;
 
     private String descrizione;
-
+    //@Relationship(type = "WRITES")
+    //private List<Utente4j> users;
     Neo4jNote(){}
 
     Neo4jNote(String title, String description) {
@@ -38,4 +42,6 @@ public class Neo4jNote implements Todo {
     public String getDescrizione(){
         return descrizione;
     }
+    //public List<Utente4j> getUsers() { return users; }
+
 }

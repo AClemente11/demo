@@ -25,12 +25,13 @@ public class TodoController {
     Iterable<Todo> getNotes(){
         return (Iterable<Todo>) service.getNotes();
     }
+
     @GetMapping("/todos/{id}")
     Object getNotes(@PathVariable Long id){
         return service.getNotes(id);
     }
     @PutMapping("/todos/{id}")
-    Object PutNote(@PathVariable Long id, @RequestBody Note nuovanota){
+    Object PutNote(@PathVariable Long id, @RequestBody TodoResponse nuovanota){
         return service.PutNote(id, nuovanota);
     }
     @DeleteMapping("/todos/{id}")
@@ -38,7 +39,8 @@ public class TodoController {
         service.deleteNote(id);
     }
     @PostMapping("/todos")
-    Object createNote(@RequestBody Note newNote){
+
+    Object createNote(@RequestBody TodoResponse newNote){
         return  service.createNote(newNote);
 
     }

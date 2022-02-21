@@ -8,6 +8,7 @@ import org.springframework.data.neo4j.repository.config.EnableNeo4jRepositories;
 public class CrudApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(CrudApplication.class, args);
 	}
 
