@@ -8,28 +8,28 @@ import org.springframework.data.neo4j.core.schema.Relationship;
 import java.util.List;
 
 @Node(labels = "Utente4j")
-public class Utente4j implements Utenti{
+public class User4j implements Users {
     @Id @GeneratedValue
     private Long id;
-    private String nome;
+
+    private String nomeUtente;
     @Relationship(value = "WRITES",type = "WRITES")
     private List<Neo4jNote> notes;
     public List<Neo4jNote> getNotes() { return notes; }
 
-    Utente4j(){}
-    public Utente4j(String nome) {
+    User4j(){}
+    public User4j(String nome) {
         super();
-        this.nome = nome;
+        this.nomeUtente = nome;
     }
 
 
     @Override
-    public String getNome() {
-        return nome;
+    public String getNomeUtente() {
+        return nomeUtente;
     }
-    public void setNome(String nome){
-        this.nome = nome;
-
+    public void setNomeUtente(String nome){
+        this.nomeUtente = nome;
     }
 
 }

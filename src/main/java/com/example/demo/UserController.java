@@ -3,12 +3,14 @@ package com.example.demo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
+
 @RestController
 public class UserController {
     @Autowired UserService userservice;
 
     @GetMapping("/users")
-    Iterable<Utenti> getUsers(){
+    Iterable<Users> getUsers(){
         return userservice.getUser();
     }
     @GetMapping("/user/{id}")
@@ -28,7 +30,11 @@ public class UserController {
         return  userservice.createUser(nuovouser);
     }
     @GetMapping("/usernote/{id}")
-    Iterable<Todo> getNotes(@PathVariable Long id){
+    Object getNotes(@PathVariable Long id){
         return userservice.getNotes(id);
+    }
+    @GetMapping("/user/conta")
+    Collection<Object> contaNote(){
+       return userservice.contaNote();
     }
 }

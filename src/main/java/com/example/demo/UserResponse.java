@@ -1,7 +1,7 @@
 package com.example.demo;
 
 public class UserResponse {
-    public String nome;
+    public String nomeUtente;
 
     UserResponse(){
 
@@ -9,13 +9,13 @@ public class UserResponse {
     //TodoResponse fromTodo(neo4jNote nota){
     //   return new TodoResponse(nota.getTitolo(), nota.getTitolo());
     //}
-    UserResponse(Utenti user){
-        this.nome = user.getNome();
+    UserResponse(Users user){
+        this.nomeUtente = user.getNomeUtente();
     }
     public static Note fromResponseSql(TodoResponse response){
         return new Note(response.titolo, response.descrizione);
     }
-    public static Utente4j fromResponse4j(UserResponse response){
-        return new Utente4j(response.nome);
+    public static User4j fromResponse4j(UserResponse response){
+        return new User4j(response.nomeUtente);
     }
 }

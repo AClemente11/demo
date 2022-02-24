@@ -1,5 +1,7 @@
-package com.example.demo;
+package com.example.demo.sql;
 
+import com.example.demo.TodoResponse;
+import com.example.demo.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;

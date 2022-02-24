@@ -11,14 +11,14 @@ public class WritesReverse {
     @GeneratedValue
     private long id;
     @TargetNode
-    private Utente4j start;
+    private User4j start;
 
-    public WritesReverse(long id, Utente4j start) {
+    public WritesReverse(long id, User4j start) {
         this.id = id;
         this.start = start;
     }
 
     public WritesReverse() { }
 
-    public Utente4j getUser() { return start ; }
+    public User4j getUser() { return start ; }
 }

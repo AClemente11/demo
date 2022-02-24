@@ -1,6 +1,9 @@
 package com.example.demo;
 
 import org.springframework.stereotype.Service;
+
+import java.util.Collection;
+
 @Service
 public interface UserService<T> {
 
@@ -13,6 +16,7 @@ public interface UserService<T> {
         void deleteUser(Long id);
 
         T createUser(UserResponse newUser);
-        Iterable<T> getNotes(Long id);
+        T getNotes(Long id);
+        Collection<Projection> contaNote();
 
 }
