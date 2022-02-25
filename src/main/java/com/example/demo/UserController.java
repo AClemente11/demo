@@ -18,23 +18,23 @@ public class UserController {
         return userservice.getUsers(id);
     }
     @PutMapping("/user/{id}")
-    Object PutUser(@PathVariable Long id, @RequestBody UserResponse nuovouser){
-        return userservice.PutUser(id, nuovouser);
+    Object PutUser(@PathVariable Long id, @RequestBody UserResponse response){
+        return userservice.PutUser(id, response);
     }
     @DeleteMapping("/user/{id}")
     void deleteUser(@PathVariable Long id){
         userservice.deleteUser(id);
     }
     @PostMapping("/user")
-    Object createUser(@RequestBody UserResponse nuovouser){
-        return  userservice.createUser(nuovouser);
+    Object createUser(@RequestBody UserResponse response){
+        return  userservice.createUser(response);
     }
     @GetMapping("/usernote/{id}")
     Object getNotes(@PathVariable Long id){
         return userservice.getNotes(id);
     }
-    @GetMapping("/user/conta")
-    Collection<Object> contaNote(){
-       return userservice.contaNote();
+    @GetMapping("/user/count")
+    Collection<Object> countNotes(){
+       return userservice.countNotes();
     }
 }

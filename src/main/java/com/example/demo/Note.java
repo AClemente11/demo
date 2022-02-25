@@ -8,27 +8,27 @@ import javax.persistence.Id;
 public class Note implements Todo{
 
     private @Id @GeneratedValue Long id;
-    private String titolo;
-    private String descrizione;
+    private String title;
+    private String description;
 
     Note(){}
 
     Note(String title, String description) {
         super();
-        titolo = title;
-        descrizione = description;
+        this.title = title;
+        this.description = description;
     }
-    public String getTitolo(){
-        return titolo;
+    public String getTitle(){
+        return title;
     }
-    public void setTitolo(String titolo){
-        this.titolo = titolo;
+    public void setTitle(String title){
+        this.title = title;
 
     }
-    public void setDescrizione(String descrizione){
-        this.descrizione = descrizione;
+    public void setDescription(String description){
+        this.description = description;
     }
-    public String getDescrizione(){
-        return descrizione;
+    public String getDescription(){
+        return description;
     }
 }

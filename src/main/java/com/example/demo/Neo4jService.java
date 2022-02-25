@@ -20,18 +20,17 @@ public class Neo4jService implements TodoService<Neo4jNote> {
         return todoRepository.findById(id).orElseThrow(() -> new RuntimeException());
     }
 
-    public Neo4jNote PutNote( Long id, TodoResponse nuovanota){
-        Neo4jNote nota = todoRepository.findById(id).orElseThrow(() -> new RuntimeException());
-        Neo4jNote newnote = TodoResponse.fromResponse4j(nuovanota);
-        nota.setTitolo(newnote.getTitolo());
-        nota.setDescrizione(newnote.getDescrizione());
-        return todoRepository.save(nota);
+    public Neo4jNote PutNote( Long id, TodoResponse response){
+        Neo4jNote note = todoRepository.findById(id).orElseThrow(() -> new RuntimeException());
+        Neo4jNote newNote = TodoResponse.fromResponse4j(response);
+        note.setTitle(newNote.getTitle());
+        note.setDescription(newNote.getDescription());
+        return todoRepository.save(note);
     }
     public void deleteNote( Long id){
         todoRepository.deleteById(id);
     }
     public Neo4jNote createNote(TodoResponse response){
-
         return todoRepository.save(TodoResponse.fromResponse4j(response));
     }
 }

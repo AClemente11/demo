@@ -17,6 +17,6 @@ public interface UserService<T> {
 
         T createUser(UserResponse newUser);
         T getNotes(Long id);
-        Collection<Projection> contaNote();
+        Collection<Projection> countNotes();
 
 }

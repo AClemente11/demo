@@ -2,7 +2,7 @@ package com.example.demo;
 
 public interface Todo {
 
-    String getTitolo();
+    String getTitle();
 
-    String getDescrizione();
+    String getDescription();
 }
