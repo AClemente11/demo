@@ -31,7 +31,6 @@ class CrudApplicationTests {
 	}
 	@Test
 	void checkJsonFormat() throws Exception {
-		System.out.println("aaaa");
 		mockmvc.perform(MockMvcRequestBuilders.get("/users").contentType(MediaType.APPLICATION_JSON))
 				.andExpect(jsonPath("[0].nome_utente").hasJsonPath());
 

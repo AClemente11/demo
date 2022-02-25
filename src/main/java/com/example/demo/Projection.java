@@ -1,22 +1,22 @@
 package com.example.demo;
 
 public class Projection {
-    private String nomeUtente;
-    private int numeroNote;
+    private String userName;
+    private int noteNumber;
 
-    public String getNome() {
-        return nomeUtente;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setNome(String name) {
-        this.nomeUtente = name;
+    public void setUserName(String name) {
+        this.userName = name;
     }
 
-    public int getNumeroNote() {
-        return numeroNote;
+    public int getNoteNumber() {
+        return noteNumber;
     }
 
-    public void setNumeroNote(int numeroNote) {
-        this.numeroNote = numeroNote;
+    public void setNoteNumber(int noteNumber) {
+        this.noteNumber = noteNumber;
     }
 }

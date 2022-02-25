@@ -8,10 +8,10 @@ import java.util.Collection;
 
 public interface UserNeo4jRepository extends Neo4jRepository<User4j,Long> {
 
-    @Query("match (n:Utente4j)-[w:WRITES]->(a:neo4jNote) WHERE id(n)=$id return DISTINCT n,collect(w),collect(a)")
+    @Query("match (n:User4j)-[w:WRITES]->(a:Neo4jNote) WHERE id(n)=$id return DISTINCT n,collect(w),collect(a)")
     User4j findByNotes(@Param("id") Long id);
 
-    @Query("match (u:Utente4j)-[w:WRITES]-(n:neo4jNote) WHERE n.titolo STARTS WITH 'Eccomi' return distinct(u), count(n) as numeroNote")
-    Collection<Projection> contaNote();
+    @Query("match (u:User4j)-[w:WRITES]-(n:Neo4jNote) WHERE n.title STARTS WITH 'Eccomi' return distinct(u), count(n) as noteNumber")
+    Collection<Projection> countNotes();
 
 }

@@ -1,8 +1,8 @@
 package com.example.demo;
 
 public class TodoResponse {
-    public String titolo;
-    public String descrizione;
+    public String title;
+    public String description;
 
     TodoResponse(){
 
@@ -10,15 +10,15 @@ public class TodoResponse {
     //TodoResponse fromTodo(neo4jNote nota){
      //   return new TodoResponse(nota.getTitolo(), nota.getTitolo());
     //}
-    TodoResponse(Todo nota){
+    TodoResponse(Todo note){
 
-        this.titolo = nota.getTitolo();
-        this.descrizione = nota.getDescrizione();
+        this.title = note.getTitle();
+        this.description = note.getDescription();
     }
     public static Note fromResponseSql(TodoResponse response){
-        return new Note(response.titolo, response.descrizione);
+        return new Note(response.title, response.description);
     }
     public static Neo4jNote fromResponse4j(TodoResponse response){
-        return new Neo4jNote(response.titolo, response.descrizione);
+        return new Neo4jNote(response.title, response.description);
     }
 }

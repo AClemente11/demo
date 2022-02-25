@@ -17,15 +17,14 @@ public class MySQLService implements TodoService<Note> {
     }
 
     public Note getNotes(Long id){
-
         return noterepository.findById(id).orElseThrow(() -> new RuntimeException());
     }
-    public Note PutNote( Long id, TodoResponse nuovanota){
-        Note nota = noterepository.findById(id).orElseThrow(() -> new RuntimeException());
-        Note newnote = TodoResponse.fromResponseSql(nuovanota);
-        nota.setTitolo(newnote.getTitolo());
-        nota.setDescrizione(newnote.getDescrizione());
-        return noterepository.save(nota);
+    public Note PutNote( Long id, TodoResponse response){
+        Note note = noterepository.findById(id).orElseThrow(() -> new RuntimeException());
+        Note newNote = TodoResponse.fromResponseSql(response);
+        note.setTitle(newNote.getTitle());
+        note.setDescription(newNote.getDescription());
+        return noterepository.save(note);
     }
     public void deleteNote( Long id){
         noterepository.deleteById(id);

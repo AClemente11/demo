@@ -15,12 +15,7 @@ public class TodoController {
     @Autowired
     private TodoService service;
 
-    //@GetMapping("/todos")
-    //Iterable<TodoResponse> getNotes(){
-      //  Iterable<Todo> lista =  notaservice.getNotes();
-        //Iterable<TodoResponse> result = (Iterable<TodoResponse>) StreamSupport.stream(lista.spliterator(),false).map(s -> new TodoResponse(s));
-        //return result;
-    //}
+
     @GetMapping("/todos")
     Iterable<Todo> getNotes(){
         return (Iterable<Todo>) service.getNotes();
@@ -31,8 +26,8 @@ public class TodoController {
         return service.getNotes(id);
     }
     @PutMapping("/todos/{id}")
-    Object PutNote(@PathVariable Long id, @RequestBody TodoResponse nuovanota){
-        return service.PutNote(id, nuovanota);
+    Object PutNote(@PathVariable Long id, @RequestBody TodoResponse response){
+        return service.PutNote(id, response);
     }
     @DeleteMapping("/todos/{id}")
     void deleteNote(@PathVariable Long id){
